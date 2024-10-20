@@ -33,14 +33,12 @@ def send_email(
     - **403 Forbidden**: If the API key is invalid.
     - **500 Internal Server Error**: If an error occurs while sending the email.
     """
-    print(api_key_header, email_server.api_key)
     if api_key_header != email_server.api_key:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="Forbidden, you can't send email",
         )
     try:
-        print(email_request)
         if smtp_settings.USE_SMTP:
             subject = "Activation Code"
             body = f"Your Activation code is: {email_request.code}"
