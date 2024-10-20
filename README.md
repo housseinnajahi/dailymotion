@@ -86,7 +86,7 @@ Link to documentation: http://localhost:8000/users/docs
 
 ```json
     {
-        "email": "email@email.com",
+        "email": "test@gmail.com",
         "password": "your_password"
     }
 ```
@@ -96,7 +96,7 @@ Link to documentation: http://localhost:8000/users/docs
 ```bash
     curl -X POST http://localhost:8000/api/v1/users/register \
     -H "Content-Type: application/json" \
-    -d '{"email": "email@email.com", "password": "your_password"}'
+    -d '{"email": "test@gmail.com", "password": "your_password"}'
 ```
 
 2. **Activate a User**
@@ -136,7 +136,7 @@ Link to documentation: http://localhost:8001/emails/docs
 
 ```json
     {
-        "email": "test@test.com",
+        "email": "test@gmail.com",
         "code": "1234"
     }
 ```
@@ -145,7 +145,7 @@ Link to documentation: http://localhost:8001/emails/docs
 
 ```bash
     curl -X POST http://localhost:8001/api/v1/emails/send -H "x-api-key: bb9e5b1b-1740-4a67-ba88-3a6eb4b8e176" -H "Content-Type: application/json" -d '{
-    "email": "user@example.com",
+    "email": "test@gmail.com",
     "code": "1111"
     }'
 ```
