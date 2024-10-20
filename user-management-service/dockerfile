@@ -1,0 +1,9 @@
+FROM python:3.9.6-slim-buster
+
+WORKDIR /usr/src/app
+
+
+RUN pip install --upgrade pip
+COPY ./requirements.txt .
+ENV PYTHONPATH=/usr/src/app
+RUN pip install -r requirements.txt

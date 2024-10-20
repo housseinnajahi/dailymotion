@@ -1,0 +1,12 @@
+fastapi
+requests
+uvicorn
+pydantic
+psycopg2-binary
+pydantic_settings
+pydantic[email]
+passlib
+bcrypt
+pytest
+httpx
+freezegun

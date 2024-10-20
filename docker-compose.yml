@@ -1,0 +1,44 @@
+version: "3"
+
+services:
+  user-management-service:
+    build: ./user-management-service
+    command: uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./user-management-service:/usr/src/app
+    depends_on:
+      - postgres-db
+    environment:
+      POSTGRES_USER: "dailymotion"
+      POSTGRES_PASSWORD:  "Fn1fDSNEypo52j"
+      POSTGRES_DB: "dailymotion"
+      POSTGRES_PORT: "5432"
+      API_KEY: "bb9e5b1b-1740-4a67-ba88-3a6eb4b8e176"
+      EMAIL_SERVICE_URL: "http://email-service:8001/api/v1/emails/send"
+  postgres-db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: "dailymotion"
+      POSTGRES_PASSWORD: "Fn1fDSNEypo52j"
+      POSTGRES_DB: "dailymotion"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+  email-service:
+    build: ./email-service
+    command: uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 8001
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./email-service:/usr/src/app
+    environment:
+      SMTP_SERVER: "live.smtp.mailtrap.io"
+      SMTP_PORT: 587
+      SMTP_USERNAME: ""
+      SMTP_PASSWORD: ""
+      SMTP_FROM: "hello@demomailtrap.com"
+      USE_SMTP: False
+      API_KEY: "bb9e5b1b-1740-4a67-ba88-3a6eb4b8e176"

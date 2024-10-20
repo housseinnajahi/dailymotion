@@ -1,0 +1,8 @@
+__pycache__/
+email-service/app/__pycache__/ 
+email-service/app/emails/__pycache__/
+user-management-service/tests/__pycache__/
+user-management-service/app/__pycache__/ 
+user-management-service/app/users/__pycache__/
+user-management-service/app/__pycache__/ 
+.idea
