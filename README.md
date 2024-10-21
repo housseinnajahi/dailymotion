@@ -74,7 +74,7 @@ Otherwise you can just set `USE_SMTP: False` in the docker compose file.
 
 ## API Endpoints
 
-### User Mangement Service
+### User Management Service
 
 Link to documentation: http://localhost:8000/users/docs
 
@@ -122,7 +122,7 @@ Link to documentation: http://localhost:8000/users/docs
     -d '{"code": "1234"}'
 ```
 
-### User Mangement Service
+### User Management Service
 
 Link to documentation: http://localhost:8001/emails/docs
 
