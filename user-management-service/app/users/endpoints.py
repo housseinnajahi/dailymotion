@@ -79,7 +79,7 @@ def activate_new_user(
     code: UserActivationModel,
     credentials: Annotated[HTTPBasicCredentials, Depends(security)],
     db=Depends(postgres.get_db),
-):
+) -> UserModel:
     """
     Activate a user account.
 
