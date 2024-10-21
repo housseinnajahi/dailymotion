@@ -6,7 +6,7 @@ from .config import postgres_settings
 
 class Postgres:
     def __init__(self):
-        self.database_url = f"postgresql://{postgres_settings.POSTGRES_USER}:{postgres_settings.POSTGRES_PASSWORD}@postgres-db/{postgres_settings.POSTGRES_DB}"
+        self.database_url = f"postgresql://{postgres_settings.POSTGRES_USER}:{postgres_settings.POSTGRES_PASSWORD}@postgres-db:{postgres_settings.POSTGRES_PORT}/{postgres_settings.POSTGRES_DB}"
 
     def get_db(self):
         connection = psycopg2.connect(self.database_url, cursor_factory=RealDictCursor)
