@@ -25,7 +25,7 @@ def mock_post_request(monkeypatch):
 
 class MockPostgres:
     def __init__(self):
-        self.database_url = f"postgresql://{postgres_settings.POSTGRES_USER}:{postgres_settings.POSTGRES_PASSWORD}@postgres-db/{postgres_settings.POSTGRES_DB}_test"
+        self.database_url = f"postgresql://{postgres_settings.POSTGRES_USER}:{postgres_settings.POSTGRES_PASSWORD}@postgres-db:{postgres_settings.POSTGRES_PORT}/{postgres_settings.POSTGRES_DB}_test"
         self.init_database()
 
     def get_db(self):
