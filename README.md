@@ -62,12 +62,16 @@ Otherwise you can just set `USE_SMTP: False` in the docker compose file.
 3. **Create the test database:**
 
 ```bash
+    docker exec -it <postgres-container-name> psql -U dailymotion -c "CREATE DATABASE dailymotion_test;"
+    #Example
     docker exec -it dailymotion-postgres-db-1 psql -U dailymotion -c "CREATE DATABASE dailymotion_test;"
 ```
 
 4. **Run the unit tests:**
 
 ```bash
+    docker exec -it <user-management-service-container-name> bash
+    #Example
     docker exec -it dailymotion-user-management-service-1 bash
     pytest tests/
 ```
